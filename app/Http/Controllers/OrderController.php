@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
   
-     */
+     
     public function index()
- 
+    {
 
-        $orders = Order::all();
+        $order = Order::all();
 
 
-        return response()->json($orders);
+        return response()->json($order);
 
     }
 
@@ -36,7 +36,7 @@ class OrderController extends Controller
 
 
     public function show(string $id)
- 
+    {
         $order = Order::find($id); 
         if (!$order) {
             return response()->json('Not Found', 404);
@@ -72,7 +72,7 @@ class OrderController extends Controller
 
     public function destroy(string $id)
 
-
+    {
         $order = Order::find($id);
 
    
