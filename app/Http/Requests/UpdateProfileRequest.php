@@ -8,7 +8,7 @@ class UpdateProfileRequest extends FormRequest
 {
     public function authorize()
     {
-        // Only allow the authenticated user to update their own profile
+        // Permiteți numai utilizatorului autentificat să-și actualizeze propriul profil
         return Auth::check() && Auth::id() == $this->route('id');
     }
 
@@ -17,7 +17,7 @@ class UpdateProfileRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $this->route('id'),
-            // Add other fields you want to validate and update here
+            // Adăugați aici alte câmpuri pe care doriți să le validați și să le actualizați
         ];
     }
 }
